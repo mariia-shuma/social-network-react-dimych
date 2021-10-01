@@ -6,6 +6,24 @@ import Message from './Message/Message';
 
 function Dialogues(props) {
     let state = props.messagesPage;
+
+    const ourMap = function(arr, converter){
+        let result = []
+        for(let item of arr){
+            result.push(converter(item))
+        }
+        return result
+    }
+
+    const ourDialoduesConverter = function(d){
+        return <DialogueItems name={d.name} key={d.id} id={d.id} />
+    }
+
+
+    // let dialogsElement = ourMap(state.dialogues, ourDialoduesConverter);
+    // let messagesElemnt = ourMap(state.messages, function(m){
+    //     return <Message message={m.message} key={m.id} />
+    // });
     let dialogsElement = state.dialogues.map(d => <DialogueItems name={d.name} key={d.id} id={d.id} />);
     let messagesElemnt = state.messages.map(m => <Message message={m.message} key={m.id} />);
     let newMessageBody = state.newMessageBody;

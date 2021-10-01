@@ -1,7 +1,9 @@
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import MyFriends from '../MyFriends/MyFriends';
 import  classes from './Navbar.module.css';
 
-function Navbar() {
+function Navbar(props) {
     return <nav className= {classes.nav}>
     <div className={classes.item}>
       <NavLink to="/profile" activeClassName={classes.activeLink}>Profile</NavLink>
@@ -21,9 +23,21 @@ function Navbar() {
       <a>Music</a>
     </div>
     <div className={classes.item}>
-      <a>Settingss</a>
+      <a>Settings</a>
     </div>
+    <MyFriends list={props.friendList} />
   </nav>
 }
- 
+
+// let mapStateToprops = (state) => {
+//   return {
+//       friendList: state.listOfFriends
+//   }
+// }
+// let mapDispatchToProps = (dispatch) => {
+
+// }
+
+// const Navbar = connect(mapStateToprops, mapDispatchToProps)(Navbar);
+
 export default Navbar;

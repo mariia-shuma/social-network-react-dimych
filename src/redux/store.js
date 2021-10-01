@@ -1,7 +1,7 @@
 import messagesPageReducer from "./messagesPagereducer";
 import profileReducer from "./profileReducer";
 
-
+// OLD OLD OLD OLD OLD OLD OLD OLD OLD  
 let store = {
     _state: {
         profilePage: {
@@ -24,6 +24,13 @@ let store = {
             ],
             newMessageBody: "" 
         },
+        // listOfFriends:[
+        //     {id:1, name: 'Masha'},
+        //     {id:2, name: 'Sasha'},
+        //     {id:3, name: 'Dasha'},
+        //     {id:4, name: 'Pasha'},
+            
+        // ]
     },
     getState() {
         return this._state;
@@ -33,18 +40,17 @@ let store = {
     },
     subscribe(observer) {
         this._callSubscriber = observer;
-    },
+    }, 
 
 
     dispatch(action) {
-        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.profilePage =  (this._state.profilePage, action);
         this._state.messagesPage = messagesPageReducer(this._state.messagesPage, action);
         this._callSubscriber(this._state);
-
     }
 }
 
-
+ 
 
 
 export default store;
