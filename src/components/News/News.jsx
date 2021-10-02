@@ -1,9 +1,10 @@
-
+import Clock from "./Clock";
 
 
 function News(props){
     return <div >
-        News
+        <Clock timeZone="Europe/Kiev" />,
+        <Clock timeZone="Europe/London" />
     </div>
 }
 
