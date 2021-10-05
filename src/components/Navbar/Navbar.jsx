@@ -20,7 +20,7 @@ function Navbar(props) {
     </div>
 
     <div className={classes.item}>
-      <a>Music</a>
+      <NavLink to="/buttons" activeClassName={classes.activeLink}>Buttons</NavLink>
     </div>
     <div className={classes.item}>
       <a>Settings</a>
